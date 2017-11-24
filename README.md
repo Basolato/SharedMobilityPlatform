@@ -1,2 +1,1 @@
-# SharedMobilityPlatform
-Result of the hackathon at Münchner Kreis / IBM
+# org.example.biznet

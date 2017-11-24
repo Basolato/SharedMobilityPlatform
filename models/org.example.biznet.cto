@@ -1,0 +1,39 @@
+/**
+ * Write your model definitions here
+ */
+
+namespace org.example.biznet
+
+participant MobilityProvider identified by name {
+  o String name
+}
+
+asset User identified by name {
+  o String name
+  o String primaryMobilityProvider
+  o Integer money
+}
+
+asset TransportationMode identified by name {
+  o String name
+  o Integer factor
+  --> MobilityProvider provider
+}
+
+asset journey identified by id {
+  o String id
+  --> User user
+  --> TransportationMode mode
+  o DateTime start
+  o DateTime end
+  o Integer time
+}
+
+transaction StartBooking {
+  --> User user
+  --> TransportationMode mode
+}
+
+transaction EndBooking {
+  --> Asset journey
+}
