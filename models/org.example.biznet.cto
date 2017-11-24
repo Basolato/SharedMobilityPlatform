@@ -4,7 +4,8 @@
 
 namespace org.example.biznet
 
-participant MobilityProvider identified by name {
+participant MobilityProvider identified by id {
+  o String id
   o String name
 }
 
@@ -24,16 +25,16 @@ asset TransportationMode identified by id {
 
 asset Journey identified by id {
   o String id
-  o String user
-  o String mode
+  --> User user
+  --> TransportationMode mode
   o Integer start
   o Integer end
   o Integer time
 }
 
 transaction StartBooking {
-  o String user
-  o String mode
+  --> User user
+  --> TransportationMode mode
 }
 
 transaction EndBooking {
