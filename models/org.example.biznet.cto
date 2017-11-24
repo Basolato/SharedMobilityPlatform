@@ -8,32 +8,34 @@ participant MobilityProvider identified by name {
   o String name
 }
 
-asset User identified by name {
+asset User identified by id {
+  o String id
   o String name
   o String primaryMobilityProvider
   o Integer money
 }
 
-asset TransportationMode identified by name {
+asset TransportationMode identified by id {
+  o String id
   o String name
   o Integer factor
   --> MobilityProvider provider
 }
 
-asset journey identified by id {
+asset Journey identified by id {
   o String id
-  --> User user
-  --> TransportationMode mode
-  o DateTime start
-  o DateTime end
+  o String user
+  o String mode
+  o Integer start
+  o Integer end
   o Integer time
 }
 
 transaction StartBooking {
-  --> User user
-  --> TransportationMode mode
+  o String user
+  o String mode
 }
 
 transaction EndBooking {
-  --> Asset journey
+  --> Journey journey
 }
