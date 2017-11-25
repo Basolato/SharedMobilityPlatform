@@ -12,7 +12,7 @@ participant MobilityProvider identified by id {
 asset User identified by id {
   o String id
   o String name
-  o String primaryMobilityProvider
+  --> MobilityProvider primaryMobilityProvider
   o Integer money
 }
 
@@ -38,5 +38,17 @@ transaction StartBooking {
 }
 
 transaction EndBooking {
+  --> Journey journey
+}
+
+transaction CreateBill {
+  --> MobilityProvider billFor
+}
+
+event journeyStarted {
+  --> Journey journey
+}
+
+event journeyEnded {
   --> Journey journey
 }

@@ -1,0 +1,8 @@
+/** Sample queries for Commodity Trading business network
+*/
+
+query selectJourneys {
+  description: "Select all Journeys"
+  statement:
+      SELECT org.example.biznet.Journey
+}
