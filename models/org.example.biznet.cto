@@ -32,6 +32,12 @@ asset Journey identified by id {
   o Integer time
 }
 
+asset ToPay identified by id {
+  o String id
+  --> TransportationMode mode
+  o Integer money
+}
+
 transaction StartBooking {
   --> User user
   --> TransportationMode mode

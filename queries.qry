@@ -6,3 +6,9 @@ query selectJourneys {
   statement:
       SELECT org.example.biznet.Journey
 }
+
+query selectTransportationMode {
+  description: "Select all TransportationModes"
+  statement:
+      SELECT org.example.biznet.TransportationMode
+}
